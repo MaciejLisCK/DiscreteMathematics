@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -7,39 +8,58 @@ namespace DiscreteMathematics.BusinessLogic
 {
     public class Set<T> : IEnumerable<T>
     {
-        private readonly HashSet<T> _elements;
+        private readonly HashSet<T> _objects;
 
-        public Set(params T[] elements)
+        public int Count
         {
-            _elements = new HashSet<T>(elements);
+            get
+            {
+                return _objects.Count;
+            }
         }
 
-        public bool Add(T element)
+        public Set(params T[] objects)
         {
-            var isElementExist = _elements.Add(element);
-
-            return isElementExist;
+            _objects = new HashSet<T>(objects);
         }
 
-        public bool Remove(T element)
+        public bool Add(T @object)
         {
-            bool isElementFoundAndRemoved = _elements.Remove(element);
+            var isObjectExist = _objects.Add(@object);
 
-            return isElementFoundAndRemoved;
+            return isObjectExist;
+        }
+
+        public bool Remove(T @object)
+        {
+            bool isObjectFoundAndRemoved = _objects.Remove(@object);
+
+            return isObjectFoundAndRemoved;
         }
 
         public IEnumerator<T> GetEnumerator()
         {
-            var setEnumerator = new SetEnumerator<T>(_elements);
+            var setEnumerator = new SetEnumerator<T>(_objects);
 
             return setEnumerator;
         }
 
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
-            var setEnumerator = new SetEnumerator<T>(_elements);
+            var setEnumerator = new SetEnumerator<T>(_objects);
 
             return setEnumerator;
+        }
+
+        public override string ToString()
+        {
+            var setStringBuilder = String.Empty;
+
+            setStringBuilder += "{";
+            setStringBuilder += String.Join(", ", _objects);
+            setStringBuilder += "}";
+
+            return setStringBuilder;
         }
     }
 }

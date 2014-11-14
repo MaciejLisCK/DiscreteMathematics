@@ -7,12 +7,12 @@ namespace DiscreteMathematics.BusinessLogic
     public class SetEnumerator<T> : IEnumerator<T>
     {
         private static readonly Random _random = new Random();
-        private T[] _elements;
-        private int _currentElementOffset;
+        private T[] _objects;
+        private int _currentObjectOffset;
 
-        public SetEnumerator(IEnumerable<T> elements)
+        public SetEnumerator(IEnumerable<T> objects)
         {
-            _elements = elements.ToArray();
+            _objects = objects.ToArray();
 
             Reset();
         }
@@ -21,7 +21,7 @@ namespace DiscreteMathematics.BusinessLogic
         {
             get
             {
-                return _elements[_currentElementOffset];
+                return _objects[_currentObjectOffset];
             }
         }
 
@@ -29,25 +29,25 @@ namespace DiscreteMathematics.BusinessLogic
         {
             get
             {
-                return _elements[_currentElementOffset];
+                return _objects[_currentObjectOffset];
             }
         }
 
         public bool MoveNext()
         {
-            _currentElementOffset++;
+            _currentObjectOffset++;
 
-            bool isValidOffset = _currentElementOffset <= _elements.Length-1;
+            bool isValidOffset = _currentObjectOffset <= _objects.Length-1;
 
             return isValidOffset;
         }
 
         public void Reset()
         {
-            var shuffledElements = _elements.OrderBy(e => _random.Next());
-            _elements = shuffledElements.ToArray();
+            var shuffledObjects = _objects.OrderBy(e => _random.Next());
+            _objects = shuffledObjects.ToArray();
 
-            _currentElementOffset = -1;
+            _currentObjectOffset = -1;
         }
 
         public void Dispose()

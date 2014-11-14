@@ -11,25 +11,22 @@ namespace DiscreteMathematics.Console
     {
         static void Main(string[] args)
         {
+            System.Console.WriteLine("=== Set ===");
+
             var integersSet = new Set<int>(1, 2, 3, 3, 3, 4, 5);
+            System.Console.WriteLine(integersSet);
 
             foreach (var i in integersSet)
             {
                 System.Console.WriteLine(i);
             }
-            System.Console.WriteLine("===");
+            System.Console.WriteLine();
+            System.Console.WriteLine("=== Ordered Pair ===");
 
-            foreach (var i in integersSet)
-            {
-                System.Console.WriteLine(i);
-            }
-            System.Console.WriteLine("===");
+            var orderedPair = new OrderedPair<int>(1, 4);
+            System.Console.WriteLine(orderedPair);
 
-            foreach (var i in integersSet)
-            {
-                System.Console.WriteLine(i);
-            }
-            System.Console.WriteLine("===");
+
 
             System.Console.ReadKey();
         }
