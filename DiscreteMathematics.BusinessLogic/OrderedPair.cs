@@ -34,10 +34,18 @@ namespace DiscreteMathematics.BusinessLogic
         {
             get
             {
+                if (IsSameObjectPair)
+                    return First;
+
                 var secondSet = this.Single(s => s.Count == SecondSetObjectsCount);
 
                 return secondSet.Single(o => !Equals(o, First));
             }
+        }
+
+        private bool IsSameObjectPair
+        {
+            get { return this.Count == 1; }
         }
 
         public override string ToString()

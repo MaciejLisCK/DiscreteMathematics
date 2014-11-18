@@ -61,5 +61,36 @@ namespace DiscreteMathematics.BusinessLogic
 
             return setStringBuilder;
         }
+
+        public override int GetHashCode()
+        {
+            var hashCode = this.Sum(@object => @object.GetHashCode());
+            return hashCode;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is Set<T>)
+            {
+                var secondSet = obj as Set<T>;
+
+                bool isObjectsCountEqual = this.Count == secondSet.Count;
+                if (!isObjectsCountEqual)
+                    return false;
+
+                foreach (var firstSetObject in this)
+                {
+                    bool hasSecondSetEqualObject = secondSet.Any(o => o.Equals(firstSetObject));
+                    if (!hasSecondSetEqualObject)
+                        return false;
+                }
+
+                return true;
+            }
+            else
+            {
+                return base.Equals(obj);
+            }
+        }
     }
 }

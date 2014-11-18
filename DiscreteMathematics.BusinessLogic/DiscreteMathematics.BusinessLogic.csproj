@@ -39,8 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CartesianProduct.cs" />
     <Compile Include="OrderedPair.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Relation.cs" />
     <Compile Include="Set.cs" />
     <Compile Include="SetEnumerator.cs" />
   </ItemGroup>
