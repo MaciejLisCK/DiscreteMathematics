@@ -10,7 +10,7 @@ namespace DiscreteMathematics.BusinessLogic
     {
         private const int FirstSetObjectsCount = 1;
         private const int SecondSetObjectsCount = 2;
-        
+
         public OrderedPair(T first, T second)
         {
             var firstSet = new Set<T>(first);
@@ -53,6 +53,13 @@ namespace DiscreteMathematics.BusinessLogic
             var orderedPairString = String.Format("({0},{1})", First, Second);
 
             return orderedPairString;
+        }
+
+        public OrderedPair<T> GetReversePair()
+        {
+            var reversePair = new OrderedPair<T>(Second, First);
+
+            return reversePair;
         }
     }
 }

@@ -87,10 +87,8 @@ namespace DiscreteMathematics.BusinessLogic
 
                 return true;
             }
-            else
-            {
-                return base.Equals(obj);
-            }
+
+            return base.Equals(obj);
         }
     }
 }

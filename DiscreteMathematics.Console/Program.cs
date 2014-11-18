@@ -11,6 +11,54 @@ namespace DiscreteMathematics.Console
     {
         static void Main(string[] args)
         {
+            var relation1 = new Relation<int>(new[]
+            {
+                new OrderedPair<int>(1, 1),
+                new OrderedPair<int>(2, 2),
+                new OrderedPair<int>(3, 3),
+            });
+            var relation2 = new Relation<int>(new[]
+            {
+                new OrderedPair<int>(1, 2),
+                new OrderedPair<int>(3, 2),
+            });
+            var relation3 = new Relation<int>(new[]
+            {
+                new OrderedPair<int>(1, 2),
+                new OrderedPair<int>(2, 1),
+                new OrderedPair<int>(3, 1),
+                new OrderedPair<int>(1, 3),
+            });
+            var relation4 = new Relation<int>(new[]
+            {
+                new OrderedPair<int>(1, 2),
+                new OrderedPair<int>(3, 1),
+                new OrderedPair<int>(2, 3),
+            });
+            var relation5 = new Relation<int>(new[]
+            {
+                new OrderedPair<int>(1, 1),
+                new OrderedPair<int>(2, 2),
+            });
+            var relation6 = new Relation<int>(new[]
+            {
+                new OrderedPair<int>(1, 2),
+                new OrderedPair<int>(2, 3),
+                new OrderedPair<int>(1, 3),
+            });
+            var relation7 = new Relation<int>(new[]
+            {
+                new OrderedPair<int>(1, 3),
+                new OrderedPair<int>(2, 1),
+                new OrderedPair<int>(2, 3),
+                new OrderedPair<int>(3, 4),
+                new OrderedPair<int>(4, 2),
+                new OrderedPair<int>(4, 1),
+            });
+
+
+
+
             System.Console.WriteLine("=== Set ===");
             var integersSet1 = new Set<int>(1, 2, 3, 3, 3, 4, 5);
             System.Console.WriteLine(integersSet1);
